@@ -88,6 +88,44 @@
 - 写一个你工作中用到的前端架构（如果有后端的也写上）
 
 - 网页性能优化的方式（结合自己做的项目）
+  - 网页内容
+    - 减少http请求
+    - 减少DNS查询
+    - 避免页面跳转
+    - Ajax缓存
+    - 延迟加载
+    - 提交加载
+    - 减少DOM元素
+    - 根据域名划分内容
+    - 减少iframe数量
+  - 服务器
+    - 使用CDN
+    - 添加Expires或者Cache-Control报头文
+    - Gzip压缩文件
+    - 配置Etags
+    - 尽早flush输出
+    - 使用Get Ajax请求
+    - 避免空的图片src
+  - Cookie
+    - 减少Cookie大小
+    - 页面内容使用无Cookie域名
+  - Css
+    - 样式表置顶
+    - 避免css表达式
+    - 代替@import
+    - 避免使用Filters
+  - Js
+    - 脚本置底
+    - 使用外部js和css文件
+    - 精简js和css
+    - 去除重复脚本
+    - 减少Dom访问
+    - 使用事件委托
+  - 图片
+    - 优化图像
+    - 优化css sprite
+    - 不要在html中缩放图片
+    - 使用小且可缓存的ico
 
 - vue 性能优化
 
