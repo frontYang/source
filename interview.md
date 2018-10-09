@@ -2,37 +2,38 @@
 ## 2018/10/09
 - 清除浮动的方式和优缺点
 
+
 - px，em，rem的区别
 
 - 下面代码输出什么
-```js
-var a;
+  ```js
+  var a;
 
-console.log(a(10, 20));
+  console.log(a(10, 20));
 
-function a(x, y){
-  return x > 0 ? (--x && a(x, y)) : (x * y);
-}
-```
-答案：0
+  function a(x, y){
+    return x > 0 ? (--x && a(x, y)) : (x * y);
+  }
+  ```
+  答案：0
 
 - 下面代码输出顺序
-```js
-var a = 1, b = 2, c = 3, d = 4;
+  ```js
+  var a = 1, b = 2, c = 3, d = 4;
 
-console.log(a);
+  console.log(a);
 
-setTimeout(function(){
-  console.log(b);
-}, 100);
+  setTimeout(function(){
+    console.log(b);
+  }, 100);
 
-console.log(c);
+  console.log(c);
 
-setTimeout(function(){
-  console.log(d);
-}, 0);
-```
-答案：1,3,4,2
+  setTimeout(function(){
+    console.log(d);
+  }, 0);
+  ```
+  答案：1,3,4,2
 
 - 一个100位数的number数组，优雅的计算前50位之和
 
