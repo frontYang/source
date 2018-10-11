@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三栏布局</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ol{
+      padding-inline-start: 40px;
+      padding-bottom: 20px;
+    }
+    h1,h3{
+      padding-bottom: 20px;
+    }
+
+    h1{
+      padding-left: 10px;
+    }
+
+    textarea{
+      margin-bottom: 20px;
+    }
+
+    section{
+      border-bottom: 1px solid gray;
+      padding-bottom: 20px;
+      margin-bottom: 50px;
+    }
+
+    .sec{
+      padding: 20px;
+    }
+    .item{
+      padding-top: 20px;
+      padding-bottom: 50px;
+      border-bottom:1px dashed gray;
+    }
+
+    .bg-red{
+      background-color: red;
+    }
+    .bg-green{
+      background-color: green;
+    }
+    .bg-blue{
+      background-color: blue;
+    }
+    .col-wrap-3{
+      width: 100%;
+      text-align: center;
+    }
+    .col-wrap-3 .col-left,
+    .col-wrap-3 .col-right{
+      width: 200px;
+    }
+
+    .col-wrap-3{
+      width: 100%;
+      text-align: center;
+    }
+
+    .row-top,
+    .row-bottom{
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+    }
+
+    .row-top,
+    .row-bottom,
+    .row-center{
+      width: 500px;
+    }
+  </style>
+</head>
+<body>
+<div class="doc">
+  <!-- 三栏布局 -->
+  <section>
+    <h1>三栏布局</h1>
+    <div class="sec">
+      <h2>1、左右宽度固定，中间自适应</h2>
+      <!-- float S -->
+      <div class="item">
+        <h3>(1)float</h3>
+        <ol>
+          <li>需要将中间的内容放在最后</li>
+          <li>不能自适应高度</li>
+        </ol>
+        <textarea name="" id="" cols="100" rows="10">
+          <style>
+            .col-wrap-float-3{
+              overflow: hidden;
+            }
+            .col-wrap-float-3 .col-left{
+              float: left;
+            }
+            .col-wrap-float-3 .col-right{
+              float: right;
+            }
+
+            .col-wrap-float-3 .col-center{
+              margin-left: 200px;
+              margin-right: 200px;
+            }
+          </style>
+          <div class="col-wrap-3 col-wrap-float-3">
+            <div class="col-left bg-red">
+                左<br>
+                左<br>
+                左<br>
+            </div>
+            <div class="col-right bg-blue">右</div>
+            <div class="col-center bg-green">中</div>
+          </div>
+        </textarea>
+        <style>
+          .col-wrap-float-3{
+            overflow: hidden;
+          }
+          .col-wrap-float-3 .col-left{
+            float: left;
+          }
+          .col-wrap-float-3 .col-right{
+            float: right;
+          }
+
+          .col-wrap-float-3 .col-center{
+            margin-left: 200px;
+            margin-right: 200px;
+          }
+        </style>
+        <div class="col-wrap-3 col-wrap-float-3">
+          <div class="col-left bg-red">
+              左<br>
+              左<br>
+              左<br>
+          </div>
+          <div class="col-right bg-blue">右</div>
+          <div class="col-center bg-green">中</div>
+        </div>
+      </div>
+      <!-- float E -->
+
+      <!-- absolute S -->
+      <div class="item">
+        <h3>(2)absolute</h3>
+        <ol>
+          <li>中间的高度为整个内容的高度</li>
+          <li>不能自适应高度</li>
+        </ol>
+        <textarea name="" id="" cols="100" rows="10">
+          <style>
+            .col-wrap-absolute-3{
+              position: relative;
+            }
+            .col-wrap-absolute-3 .col-left,
+            .col-wrap-absolute-3 .col-right{
+              position: absolute;
+              top: 0;
+            }
+            .col-wrap-absolute-3 .col-left{
+              left: 0;
+            }
+            .col-wrap-absolute-3 .col-right{
+              right: 0;
+            }
+
+            .col-wrap-absolute-3 .col-center{
+              margin: 0 200px 0 200px;
+            }
+          </style>
+          <div class="col-wrap-3 col-wrap-absolute-3">
+            <div class="col-left bg-red">
+                左<br>
+                左<br>
+                左<br>
+            </div>
+            <div class="col-center bg-green">中</div>
+            <div class="col-right bg-blue">右</div>
+          </div>
+        </textarea>
+        <style>
+          .col-wrap-absolute-3{
+            position: relative;
+          }
+          .col-wrap-absolute-3 .col-left,
+          .col-wrap-absolute-3 .col-right{
+            position: absolute;
+            top: 0;
+          }
+          .col-wrap-absolute-3 .col-left{
+            left: 0;
+          }
+          .col-wrap-absolute-3 .col-right{
+            right: 0;
+          }
+
+          .col-wrap-absolute-3 .col-center{
+            margin: 0 200px 0 200px;
+          }
+        </style>
+        <div class="col-wrap-3 col-wrap-absolute-3">
+          <div class="col-left bg-red">
+              左<br>
+              左<br>
+              左<br>
+          </div>
+          <div class="col-center bg-green">中</div>
+          <div class="col-right bg-blue">右</div>
+        </div>
+      </div>
+      <!-- absolute E -->
+
+      <!-- table S -->
+      <div class="item">
+        <h3>(3)table</h3>
+        <ol>
+          <li>无法设置栏间距</li>
+        </ol>
+        <textarea name="" id="" cols="100" rows="10">
+          <style>
+            .col-wrap-table-3{
+              display: table;
+            }
+            .col-wrap-table-3 .col-left,
+            .col-wrap-table-3 .col-center,
+            .col-wrap-table-3 .col-right{
+              display: table-cell;
+            }
+          </style>
+          <div class="col-wrap-3 col-wrap-table-3">
+            <div class="col-left bg-red">
+                左<br>
+                左<br>
+                左<br>
+            </div>
+            <div class="col-center bg-green">中</div>
+            <div class="col-right bg-blue">右</div>
+          </div>
+        </textarea>
+        <style>
+          .col-wrap-table-3{
+            display: table;
+          }
+          .col-wrap-table-3 .col-left,
+          .col-wrap-table-3 .col-center,
+          .col-wrap-table-3 .col-right{
+            display: table-cell;
+          }
+        </style>
+        <div class="col-wrap-3 col-wrap-table-3">
+          <div class="col-left bg-red">
+              左<br>
+              左<br>
+              左<br>
+          </div>
+          <div class="col-center bg-green">中</div>
+          <div class="col-right bg-blue">右</div>
+        </div>
+      </div>
+      <!-- table E -->
+
+      <!-- flex S -->
+      <div class="item">
+        <h3>(4)flex</h3>
+        <ol>
+          <li>需要考虑浏览器的兼容</li>
+        </ol>
+        <textarea rows="10" cols="100">
+          <style>
+          .col-wrap-flex-3{
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .col-wrap-flex-3 .col-center{
+            width: 100%;
+          }
+          </style>
+          <div class="col-wrap-3 col-wrap-flex-3">
+            <div class="col-left bg-red">
+              左<br>
+              左<br>
+              左<br>
+            </div>
+            <div class="col-center bg-green">中</div>
+            <div class="col-right bg-blue">右</div>
+          </div>
+        </textarea>
+        <style>
+          .col-wrap-flex-3{
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .col-wrap-flex-3 .col-center{
+            width: 100%;
+          }
+        </style>
+        <div class="col-wrap-3 col-wrap-flex-3">
+          <div class="col-left bg-red">
+            左<br>
+            左<br>
+            左<br>
+          </div>
+          <div class="col-center bg-green">中</div>
+          <div class="col-right bg-blue">右</div>
+        </div>
+      </div>
+      <!-- flex E -->
+
+      <!-- grid S -->
+      <div class="item">
+        <h3>(5)grid</h3>
+        <ol>
+          <li>需要考虑浏览器的兼容</li>
+        </ol>
+        <textarea name="" id="" cols="100" rows="10">
+          <style>
+              .col-wrap-grid-3{
+                display: grid;
+                grid-template-rows: 100%;
+                grid-template-columns: 200px auto 200px;
+              }
+              </style>
+              <div class="col-wrap-3 col-wrap-grid-3">
+                <div class="col-left bg-red">
+                    左<br>
+                    左<br>
+                    左<br>
+                </div>
+                <div class="col-center bg-green">中</div>
+                <div class="col-right bg-blue">右</div>
+              </div>
+        </textarea>
+        <style>
+        .col-wrap-grid-3{
+          display: grid;
+          grid-template-rows: 100%;
+          grid-template-columns: 200px auto 200px;
+        }
+        </style>
+        <div class="col-wrap-3 col-wrap-grid-3">
+          <div class="col-left bg-red">
+              左<br>
+              左<br>
+              左<br>
+          </div>
+          <div class="col-center bg-green">中</div>
+          <div class="col-right bg-blue">右</div>
+        </div>
+      </div>
+      <!-- grid E -->
+    </div>
+
+    <div class="sec">
+      <h2>2、上下高度固定，中间自适应</h2>
+      <div class="item">
+        <h3>(1)absolute</h3>
+        <textarea name="" id="" cols="100" rows="10">
+          <style>
+            .row-wrap-absolute-3{
+              position: relative;
+              height: 300px;
+            }
+
+            .row-inner{
+              top: 0;
+              position: absolute;
+              height: 100%;
+            }
+
+            .row-wrap-absolute-3 .row-top,
+            .row-wrap-absolute-3 .row-center,
+            .row-wrap-absolute-3 .row-bottom{
+              position: absolute;
+              left: 0;
+            }
+
+            .row-wrap-absolute-3 .row-top{
+              top: 0;
+            }
+
+            .row-wrap-absolute-3 .row-bottom{
+              bottom: 0;
+            }
+
+            .row-wrap-absolute-3 .row-center{
+              top: 50px;
+              bottom: 50px;
+            }
+          </style>
+          <div class="row-wrap row-wrap-absolute-3">
+            <div class="row-inner">
+              <div class="row-top bg-red">上</div>
+              <div class="row-center bg-green">中</div>
+              <div class="row-bottom bg-blue">下</div>
+            </div>
+          </div>
+        </textarea>
+        <style>
+          .row-wrap-absolute-3{
+            position: relative;
+            height: 300px;
+          }
+
+          .row-inner{
+            top: 0;
+            position: absolute;
+            height: 100%;
+          }
+
+          .row-wrap-absolute-3 .row-top,
+          .row-wrap-absolute-3 .row-center,
+          .row-wrap-absolute-3 .row-bottom{
+            position: absolute;
+            left: 0;
+          }
+
+          .row-wrap-absolute-3 .row-top{
+            top: 0;
+          }
+
+          .row-wrap-absolute-3 .row-bottom{
+            bottom: 0;
+          }
+
+          .row-wrap-absolute-3 .row-center{
+            top: 50px;
+            bottom: 50px;
+          }
+        </style>
+        <div class="row-wrap row-wrap-absolute-3">
+          <div class="row-inner">
+            <div class="row-top bg-red">上</div>
+            <div class="row-center bg-green">中</div>
+            <div class="row-bottom bg-blue">下</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <h3>(2)table</h3>
+        <textarea name="" id="" cols="100" rows="10">
+          <style>
+              .row-wrap-table-3{
+                height: 300px;
+                display: table;
+              }
+
+              .row-wrap-table-3 .row-center{
+                height: calc(100% - 100px);
+              }
+            </style>
+            <div class="row-wrap row-wrap-table-3">
+              <div class="row-top bg-red">上</div>
+              <div class="row-center bg-green">中</div>
+              <div class="row-bottom bg-blue">下</div>
+            </div>
+        </textarea>
+        <style>
+          .row-wrap-table-3{
+            height: 300px;
+            display: table;
+          }
+
+          .row-wrap-table-3 .row-center{
+            height: calc(100% - 100px);
+          }
+        </style>
+        <div class="row-wrap row-wrap-table-3">
+          <div class="row-top bg-red">上</div>
+          <div class="row-center bg-green">中</div>
+          <div class="row-bottom bg-blue">下</div>
+        </div>
+      </div>
+      <div class="item">
+        <h3>(3)flex</h3>
+        <textarea name="" id="" cols="100" rows="10">
+          <style>
+            .row-wrap-flex-3{
+              display: flex;
+              flex-direction:column;
+              height: 300px;
+            }
+
+            .row-wrap-flex-3 .row-center{
+              flex: 1;
+            }
+          </style>
+          <div class="row-wrap row-wrap-flex-3">
+            <div class="row-top bg-red">上</div>
+            <div class="row-center bg-green">中</div>
+            <div class="row-bottom bg-blue">下</div>
+          </div>
+        </textarea>
+        <style>
+          .row-wrap-flex-3{
+            display: flex;
+            flex-direction:column;
+            height: 300px;
+          }
+
+          .row-wrap-flex-3 .row-center{
+            flex: 1;
+          }
+        </style>
+        <div class="row-wrap row-wrap-flex-3">
+          <div class="row-top bg-red">上</div>
+          <div class="row-center bg-green">中</div>
+          <div class="row-bottom bg-blue">下</div>
+        </div>
+      </div>
+      <div class="item">
+        <h3>(4)grid</h3>
+        <textarea name="" id="" cols="100" rows="10">
+          <style>
+            .row-wrap-grid-3{
+              display: grid;
+              height: 300px;
+              grid-template-rows: 50px auto 50px;
+            }
+            </style>
+            <div class="row-wrap row-wrap-grid-3">
+              <div class="row-top bg-red">上</div>
+              <div class="row-center bg-green">中</div>
+              <div class="row-bottom bg-blue">下</div>
+            </div>
+        </textarea>
+        <style>
+        .row-wrap-grid-3{
+          display: grid;
+          height: 300px;
+          grid-template-rows: 50px auto 50px;
+        }
+        </style>
+        <div class="row-wrap row-wrap-grid-3">
+          <div class="row-top bg-red">上</div>
+          <div class="row-center bg-green">中</div>
+          <div class="row-bottom bg-blue">下</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
